@@ -6,3 +6,4 @@ https://nuxtjs.org/
 
 This app displays random "dad" jokes from the Dad Jokes API https://icanhazdadjoke.com/api 
 
+**The App on Heroku:** https://learning-nuxt-dad-jokes.herokuapp.com/
