@@ -1,12 +1,10 @@
-<template>
-  <div class="homepage"></div>
-</template>
+<template></template>
 
 <script>
 export default {
   head() {
     return {
-      title: "Welcome",
+      title: "Jokes",
       meta: [
         {
           hid: "description",
@@ -20,8 +18,4 @@ export default {
 </script>
 
 <style>
-.homepage {
-  width: 90%;
-  margin: 30px auto;
-}
 </style>
