@@ -1,19 +1,18 @@
 <template>
-  <div class="about-page">
-    <h1>This is a learning application that delivers corny Dad Jokes</h1>
-    <p>This project is written in Vue JS and used to learn Nuxt</p>
-    <Joke v-for="(joke, index) in jokes" :joke="joke" :key="index"/>
+  <div>
+    <div class="one-joke">Joke ID: {{ $route.params.id }}</div>
+    <Joke :joke="joke" :truncate="false"/>
   </div>
 </template>
 
 <script>
 import axios from "axios";
-import Joke from "../../components/Joke";
+import Joke from "../../../components/Joke";
 
-const API = "https://icanhazdadjoke.com/search";
+const API = "https://icanhazdadjoke.com/j/";
 
 export default {
-  name: "Jokes",
+  name: "JokePage",
   head() {
     return {
       title: "Jokes",
@@ -28,7 +27,10 @@ export default {
   },
   data() {
     return {
-      jokes: []
+      joke: {
+        type: Object,
+        required: true
+      }
     };
   },
   async created() {
@@ -38,8 +40,8 @@ export default {
       }
     };
     await axios
-      .get(API, config)
-      .then(res => (this.jokes = res.data.results))
+      .get(API + this.$route.params.id, config)
+      .then(res => (this.joke = res.data))
       .catch(error => console.log(error.data));
   },
   components: {
